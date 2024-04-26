@@ -9,15 +9,15 @@ chai.should();
 chai.use(chaiHttp);
 
 let login_details = {
-    name: 'test',
-    username: 'email@email.com',
+    name: 'test0',
+    username: 'email0@email.com',
     password: '123@abc'
 }
 
 describe('Register, Login User', () => {
    beforeEach((done) => { //Before each test initialize the database to empty
         //db.userList = [];
-        User.deleteOne({ name: 'test'}, function(err, user) {
+        User.deleteOne({ name: 'test0'}, function(err, user) {
             if (err) throw err;
         });
         done();
@@ -25,7 +25,7 @@ describe('Register, Login User', () => {
 
     after((done) => { //after this test suite empty the database
         //db.userList = [];
-        User.deleteOne({ name: 'test'}, function(err, user) {
+        User.deleteOne({ name: 'test0'}, function(err, user) {
             if (err) throw err;
         });
         done();
