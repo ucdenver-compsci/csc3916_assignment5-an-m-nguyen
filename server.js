@@ -11,9 +11,9 @@ var authController = require('./auth');
 var authJwtController = require('./auth_jwt');
 var jwt = require('jsonwebtoken');
 var cors = require('cors');
-var User = require('./Users');
-var Movie = require('./Movies');
-var Review = require('./Reviews');
+var User = require('./users');
+var Movie = require('./movies');
+var Review = require('./reviews');
 
 var app = express();
 app.use(cors());
