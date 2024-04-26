@@ -3,17 +3,17 @@ require('dotenv').config({path:envPath});
 let chai = require('chai');
 let chaiHttp = require('chai-http');
 let server = require('../server');
-let User = require('../users');
-let Movie = require('../movies');
-let Review = require('../reviews');
+let User = require('../Users');
+let Movie = require('../Movies');
+let Review = require('../Reviews');
 chai.should();
 
 chai.use(chaiHttp);
 
 let login_details = {
-    name: 'test',
-    username: 'email@email.com',
-    password: 'abc@123'
+    name: 'test2',
+    username: 'email2@email.com',
+    password: '123@abc'
 }
 
 let review_details = {
@@ -27,11 +27,11 @@ let movieId = null
 
 describe('Test Review Routes', () => {
    before((done) => { //Before  test initialize the database to empty
-        User.deleteOne({ name: 'test'}, function(err, user) {
+        User.deleteOne({ name: 'test2'}, function(err, user) {
             if (err) throw err;
         });
 
-        Movie.deleteOne({ title: 'Monkey Man'}, function(err, movie) {
+        Movie.deleteOne({ title: 'Alice in Wonderland'}, function(err, movie) {
             if (err) throw err;
         });
 
@@ -42,11 +42,11 @@ describe('Test Review Routes', () => {
     })
 
     after((done) => { //after this test suite empty the database
-        User.deleteOne({ name: 'test'}, function(err, user) {
+        User.deleteOne({ name: 'test2'}, function(err, user) {
             if (err) throw err;
         });
 
-        Movie.deleteOne({ title: 'Monkey Man'}, function(err, user) {
+        Movie.deleteOne({ title: 'Alice in Wonderland'}, function(err, user) {
             if (err) throw err;
         });
         Review.deleteOne({ review: review_details.review }, function(err, review) {
