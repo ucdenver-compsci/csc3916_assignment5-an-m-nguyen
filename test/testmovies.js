@@ -3,45 +3,45 @@ require('dotenv').config({path:envPath});
 let chai = require('chai');
 let chaiHttp = require('chai-http');
 let server = require('../server');
-let User = require('../Users');
-let Movie = require('../Movies');
+let User = require('../users');
+let Movie = require('../movies');
 chai.should();
 
 chai.use(chaiHttp);
 
 let login_details = {
-    name: 'test2',
-    username: 'email2@email.com',
-    password: '123@abc'
+    name: 'test',
+    username: 'email@email.com',
+    password: 'abc@123'
 }
 
 let movie_details = {
-    title: 'Alice in Wonderland',
-    releaseDate: 2010,
-    genre: 'Fantasy',
-    actors: [ { actorName: 'Mia Wasikowska', characterName: 'Alice Kingsleigh' }, { actorName: 'Johnny Depp', characterName: 'Mad Hatter' }, { actorName: 'Helena Bonham Carter', characterName: 'Red Queen' } ]
+    title: 'Monkey Man',
+    releaseDate: 2024,
+    genre: 'Action',
+    actors: [ { actorName: 'Dev Patel', characterName: 'Kid' }, { actorName: 'Sobhita Dhulipala', characterName: 'Sita' }, { actorName: 'Sikandar Kher', characterName: 'Rana' } ]
 }
 
 let token = ''
 
 describe('Test Movie Routes', () => {
    before((done) => { //Before  test initialize the database to empty
-        User.deleteOne({ name: 'test2'}, function(err, user) {
+        User.deleteOne({ name: 'test'}, function(err, user) {
             if (err) throw err;
         });
-       
-        Movie.deleteOne({ title: 'Alice in Wonderland'}, function(err, user) {
+
+        Movie.deleteOne({ title: 'Monkey Man'}, function(err, user) {
             if (err) throw err;
         });
        done();
     })
 
     after((done) => { //after this test suite empty the database
-        User.deleteOne({ name: 'test2'}, function(err, user) {
+        User.deleteOne({ name: 'test'}, function(err, user) {
             if (err) throw err;
         });
-       
-        Movie.deleteOne({ title: 'Alice in Wonderland'}, function(err, user) {
+
+        Movie.deleteOne({ title: 'Monkey Man'}, function(err, user) {
             if (err) throw err;
         });
         done();

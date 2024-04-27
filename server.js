@@ -1,5 +1,5 @@
 /*
-CSC3916 HW4
+CSC3916 - HW4
 File: Server.js
 Description: Web API scaffolding for Movie API
  */
@@ -11,9 +11,9 @@ var authController = require('./auth');
 var authJwtController = require('./auth_jwt');
 var jwt = require('jsonwebtoken');
 var cors = require('cors');
-var User = require('./Users');
-var Movie = require('./Movies');
-var Review = require('./Reviews');
+var User = require('./users');
+var Movie = require('./movies');
+var Review = require('./reviews');
 
 var app = express();
 app.use(cors());
@@ -293,5 +293,3 @@ router.all('/', function (req, res) {
 app.use('/', router);
 app.listen(process.env.PORT || 8080);
 module.exports = app; // for testing only
-
-
